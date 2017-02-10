@@ -1,0 +1,9 @@
+{
+  "name": "telao-socket",
+  "version": "0.0.1",
+  "description": "telao com socket.io",
+  "dependencies": {
+    "express": "^4.14.1",
+    "socket.io": "^1.7.2"
+  }
+}

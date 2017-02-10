@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>IA - Comentário S/ID</title>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "width = device-width"/>
+        <!-- otimizado pra mobile zoom desabilitado -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Bootstrap -->
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    </head>
+    <body style="width:">
+        <div class="container" style="margin-top: 10%;">
+            <div class="row">
+                <div class="col-md-2 col-lg-3"></div>
+                <div class="col-xs-12 col-md-8 col-lg-6">
+                    <form id="proposta" action="telao.html">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <p>Comentário S/ID</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <textarea id="m" class="form-control" maxlength="140" style="resize: none"></textarea>
+                                </div>
+                            </div>	
+                            <div class="panel-footer text-right">
+                                <input type="submit" class="btn btn-primary"/>
+                            </div>
+                        </div>				
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Script para enviar comentário -->
+        <!-- fim script -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!--<script src="js/jquery-3.1.1.min.js"></script>-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!--<script src="js/bootstrap.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			var socket = io();
+			$('form').submit(function(){
+				socket.emit('comentario', $('#m').val());
+				$('#m').val('');
+				return false;
+			});
+	</script>
+    </body>
+</html>
